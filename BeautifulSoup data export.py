@@ -5,9 +5,10 @@ import os
 import pandas as pd
 
 d = {'title': [], 'price': [], 'link': []}
-
+#enter the location of the folder where the scraped data is stored
 for file in os.listdir("data"):
     try:
+        #enter the location of the same folder
         with open(f"data/{file}") as f:
             html_doc = f.read()
         soup = BeautifulSoup(html_doc, 'html.parser')
@@ -28,4 +29,5 @@ for file in os.listdir("data"):
 
 
 df = pd.DataFrame(data=d)
+#enter the location of the folder where the CSV file will be imported
 df.to_csv("data.csv")
