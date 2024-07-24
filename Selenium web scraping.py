@@ -29,6 +29,7 @@ for i in range(1, numberOfPages + 1):
     #gets data and exports them to an html file 
     for elems in element:
         d = elems.get_attribute("outerHTML")
+        #enter the location of the folder where the scraped data has to be imported
         with open(f"data/{query}_{file}.html", "w", encoding="utf-8") as f:
             f.write(d)
             file += 1
