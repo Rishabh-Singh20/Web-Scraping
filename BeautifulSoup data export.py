@@ -1,12 +1,14 @@
+#this file allows you to export the scraped data to a CSV file using pandas and beautiful soup
+
 from bs4 import BeautifulSoup
 import os
 import pandas as pd
 
 d = {'title': [], 'price': [], 'link': []}
 
-for file in os.listdir("Selenium\Code With Harry\data"):
+for file in os.listdir("data"):
     try:
-        with open(f"Selenium\Code With Harry\data/{file}") as f:
+        with open(f"data/{file}") as f:
             html_doc = f.read()
         soup = BeautifulSoup(html_doc, 'html.parser')
         t = soup.find("h2")
@@ -26,4 +28,4 @@ for file in os.listdir("Selenium\Code With Harry\data"):
 
 
 df = pd.DataFrame(data=d)
-df.to_csv("Selenium\Code With Harry\data.csv")
+df.to_csv("data.csv")
